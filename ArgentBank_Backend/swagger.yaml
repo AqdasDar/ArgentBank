@@ -60,7 +60,7 @@ paths:
   /user/profile:
     post:
       security:
-        - Bearer: []
+        - Bearer: [ ]
       tags:
         - User Module
       summary: User Profile API
@@ -70,6 +70,7 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+          type: string
       produces:
         - application/json
       responses:
@@ -83,7 +84,7 @@ paths:
           description: Internal Server Error
     put:
       security:
-        - Bearer: []
+        - Bearer: [ ]
       tags:
         - User Module
       summary: User Profile API
@@ -93,6 +94,7 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+          type: string
         - in: body
           name: body
           description: Update user profile attributes
@@ -113,7 +115,7 @@ paths:
   /paymentMethods:
     get:
       security:
-        - Bearer: []
+        - Bearer: [ ]
       tags:
         - Payment Method Module
       summary: Payment Method API
@@ -123,6 +125,7 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+          type: string
       responses:
         '200':
           description: Payment methods retrieved successully
@@ -135,7 +138,7 @@ paths:
   /categories:
     get:
       security:
-        - Bearer: []
+        - Bearer: [ ]
       tags:
         - Categories Module
       summary: Categories API
@@ -145,6 +148,7 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+          type: string
       produces:
         - application/json
       responses:
@@ -159,7 +163,7 @@ paths:
   /transactions/account/{idAccount}:
     get:
       security:
-        - Bearer: []
+        - Bearer: [ ]
       tags:
         - Transactions Module
       summary: Transactions API
@@ -169,10 +173,12 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+          type: string
         - in: path
           name: idAccount
           description: Account id
           required: true
+          type: string
       responses:
         '200':
           description: Transactions retrieved successully
@@ -187,7 +193,7 @@ paths:
   /transactions/{idTransaction}:
     get:
       security:
-        - Bearer: []
+        - Bearer: [ ]
       tags:
         - Transactions Module
       summary: Transactions API
@@ -197,10 +203,12 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+          type: string
         - in: path
           name: idTransaction
           description: Transaction id
           required: true
+          type: string
       responses:
         '200':
           description: Transaction data retrieved successully
@@ -214,7 +222,7 @@ paths:
           description: Internal Server Error
     put:
       security:
-        - Bearer: []
+        - Bearer: [ ]
       tags:
         - Transactions Module
       summary: Transactions API
@@ -224,10 +232,12 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+          type: string
         - in: path
           name: idTransaction
           description: Transaction id
           required: true
+          type: string
         - in: body
           name: body
           description: body

@@ -1,24 +1,5 @@
 const url = 'http://127.0.0.1:3001/api/v1';
 
-// Service API pour identifier un utilisateur
-// Method : POST
-/* 
-Model données : 
-	{
-		"email": "string",
-		"password": "string"
-	}
-*/
-/*
-Réponse du serveur :
-	{
-  		"status": 0,
-  		"message": "string",
-  		"body": {
-  			"token": "string"
-		}
-	}
-*/
 export async function login(body) {
 	try {
 		const response = await fetch(`${url}/user/login`, {
@@ -34,28 +15,6 @@ export async function login(body) {
 	}
 }
 
-// Service API pour créer un utilisateur
-// Method : POST
-/* 
-Model données : 
-	{
-		"email": "string",
-		"password": "string",
-		"firstName": "string",
-		"lastName": "string"
-	}
-*/
-/*
-Réponse du serveur :
-	{
-  		"status": 0,
-  		"message": "string",
-  		"body": {
-    		"id": "string",
-    		"email": "string"
-		}
-	}
-*/
 export async function signup(body) {
 	try {
 		const response = await fetch(`${url}/user/signup`, {
@@ -71,20 +30,6 @@ export async function signup(body) {
 	}
 }
 
-// Service API pour récupérer des données utilisateurs
-// Method : POST
-// JWT obligatoire
-/*
-Réponse du serveur :
-	{
-  		"status": 0,
-  		"message": "string",
-  		"body": {
-    		"id": "string",
-    		"email": "string"
-		}
-	}
-*/
 export async function getProfileUser(token) {
 	try {
 		const response = await fetch(`${url}/user/profile`, {
@@ -95,33 +40,12 @@ export async function getProfileUser(token) {
 			},
 			body: JSON.stringify({}),
 		});
-		return await response.json();
+		return await response.json();  // reponse contient le token
 	} catch (error) {
 		console.log(error);
 	}
 }
 
-// Service API pour modifier des données utilisateurs
-// Method : PUT
-// JWT obligatoire
-/* 
-Model données : 
-{
-  	"firstName": "string",
-  	"lastName": "string"
-}
-*/
-/*
-Réponse du serveur :
-	{
-  		"status": 0,
-  		"message": "string",
-  		"body": {
-    		"id": "string",
-    		"email": "string"
-		}
-	}
-*/
 export async function putProfileUser(token, body) {
 	try {
 		const response = await fetch(`${url}/user/profile`, {
